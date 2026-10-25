@@ -32,8 +32,9 @@ namespace NPCStatRescaler
 
         private static void CreateAbility()
         {
-            var healthRegenAbility = _patchMod.Spells.AddNew(_patchMod.GetNextFormKey());
+            var healthRegenAbility = new Spell(_patchMod.GetNextFormKey(), SkyrimRelease.SkyrimSE);
             healthRegenAbility.EditorID = "NPC_stat_rescaler_health_regen_ability";
+            _patchMod.Spells.Add(healthRegenAbility);
             healthRegenAbility.EquipmentType = Skyrim.EquipType.EitherHand.AsNullable();
             healthRegenAbility.Name = "Heath Regen";
             healthRegenAbility.BaseCost = 23337;
