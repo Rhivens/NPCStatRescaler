@@ -32,7 +32,11 @@ namespace NPCStatRescaler
 
         private static void CreateAbility()
         {
-            var healthRegenAbility = new Spell(_patchMod.GetNextFormKey(), SkyrimRelease.SkyrimSE);
+            var healthRegenFormKey = new FormKey(_patchMod.ModKey, 0x800);
+            Console.WriteLine($"NPCStatRescaler patch ModKey: {_patchMod.ModKey}");
+            Console.WriteLine($"NPCStatRescaler health regen FormKey: {healthRegenFormKey}");
+
+            var healthRegenAbility = new Spell(healthRegenFormKey, SkyrimRelease.SkyrimSE);
             healthRegenAbility.EditorID = "NPC_stat_rescaler_health_regen_ability";
             _patchMod.Spells.Add(healthRegenAbility);
             healthRegenAbility.EquipmentType = Skyrim.EquipType.EitherHand.AsNullable();
